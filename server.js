@@ -2,12 +2,17 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-
-//globals
-var port = process.env.PORT || 1122;
+var bodyParser = require('body-parser');
 
 //uses
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+
+//globals
+var port = process.env.PORT || 1122;
 
 //spin up server
 app.listen(port, function() {
